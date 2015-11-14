@@ -14,7 +14,7 @@ public class MonitorChanel extends Observable {
 	 * 
 	 * @param date
 	 */
-    public void monitorDoor(Calendar date) {
+    public void notifySubscriber(Calendar date) {
         // Notify observers of change
         setChanged();
         notifyObservers(date);

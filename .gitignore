@@ -1,7 +1,9 @@
 *.jar
 *.war
 *.ear
+backup/
 target/
+/**/backup/
 /**/target/
 .settings/
 /**/.settings/

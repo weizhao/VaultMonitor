@@ -1,5 +1,6 @@
 package vault.supervisor.view;
 
+import java.util.Calendar;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -21,15 +22,24 @@ public class Supervisor implements Observer {
 	/**
 	 * Update
 	 */
-	public void update(Observable obs, Object meObj) {
-		notified();
+	public void update(Observable obs, Object date) {
+		if(date instanceof Calendar){
+			notified(((Calendar)date));
+		} else {
+			notified(null);
+		}
+		
     }
 	
 	/**
 	 * Log
 	 */
-	public void notified(){
-		System.out.println(name + " -- Got it");
+	public void notified(Calendar date){
+		String dataStr = "unknwon time";
+		if(date != null){
+			dataStr =  date.toString();
+		}
+		System.out.println(name + " -- Got it at " + dataStr);
 	}
 	
 	/**
